@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "483055563245",
+    "firebase_url": "https://ajuda-ai-8bdc7.firebaseio.com",
+    "project_id": "ajuda-ai-8bdc7",
+    "storage_bucket": "ajuda-ai-8bdc7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483055563245:android:67e9f3d16be59e293877e4",
+        "android_client_info": {
+          "package_name": "com.ufc.com.ajudaai"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483055563245-7l11sc93kmsvebjgt9jgc42ss4ks0325.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ufc.com.ajudaai",
+            "certificate_hash": "465a88a4ac7bc2679e000d850fb7358cb0058c98"
+          }
+        },
+        {
+          "client_id": "483055563245-e4rkn6s6rajkhfqq7o4bgqfn78bdsij4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAISDr8wVS6XhhLoPpTyOwY_shMQctPeHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483055563245-e4rkn6s6rajkhfqq7o4bgqfn78bdsij4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
