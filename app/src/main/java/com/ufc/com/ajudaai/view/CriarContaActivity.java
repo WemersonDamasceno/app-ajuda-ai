@@ -14,5 +14,9 @@ public class CriarContaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_criar_conta);
         getSupportActionBar().hide();
 
+
+
+
+
     }
 }

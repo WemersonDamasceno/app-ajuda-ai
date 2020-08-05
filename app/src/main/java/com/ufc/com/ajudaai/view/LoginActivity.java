@@ -26,7 +26,8 @@ public class LoginActivity extends AppCompatActivity {
         btnLoginSIGAA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext(), Pagina_Inicial_Activity.class));
+                startActivity(new Intent(v.getContext(), SplashActivity.class));
+                finish();
             }
         });
 
@@ -37,9 +38,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
-
-        //Criar a tela splash amanha e comecar a tentar fazer de vdd ><
 
 
 

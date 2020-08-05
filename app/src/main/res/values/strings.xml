@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Ajuda Ai</string>
+    <string name="ic_home">ic_home</string>
+    <string name="ic_procurar">ic_procurar</string>
+    <string name="ic_notificacoes">ic_notificacoes</string>
+    <string name="ic_perfil">ic_perfil</string>
 </resources>

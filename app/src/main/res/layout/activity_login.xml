@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.LoginActivity"
-    android:backgroundTint="@color/colorBranco">
+    android:backgroundTint="@color/colorBranco"
+    android:background="@color/colorBranco">
 
 
     <ImageView
@@ -22,7 +23,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="450dp"
         android:layout_margin="10dp"
         android:scaleType="fitXY"
         android:src="@drawable/loginmulher"
@@ -32,33 +33,43 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintStart_toStartOf="parent">
 
 
         <Button
             android:id="@+id/btnLoginSIGAA"
-            android:layout_width="175dp"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
             android:layout_height="wrap_content"
             android:background="@drawable/borda_arrendondados"
             android:backgroundTint="@color/colorAzul"
             android:text="Entrar com SIGAA"
             android:textColor="@color/colorBranco" />
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ou"
+            android:layout_gravity="center"
+            android:textSize="17sp"
+            android:layout_margin="5dp"/>
+
         <Button
             android:id="@+id/btnCriarConta"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/borda_arrendondados"
-            android:backgroundTint="@color/colorAzul"
+            android:backgroundTint="@color/colorCinza"
             android:text="Criar Conta"
-            android:textColor="@color/colorBranco" />
+            android:layout_margin="5dp"
+            android:textColor="@color/colorAzul"/>
 
     </LinearLayout>
 
