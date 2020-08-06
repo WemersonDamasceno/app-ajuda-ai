@@ -22,9 +22,6 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_pagina_inicial);
         getSupportActionBar().hide();
 
-
-
-
     }
     private void verificarAutenticado() {
         if(FirebaseAuth.getInstance().getUid() == null){
