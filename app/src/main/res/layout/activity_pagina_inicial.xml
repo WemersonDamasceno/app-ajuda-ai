@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.Pagina_Inicial_Activity"
-    android:backgroundTint="@color/colorBranco"
-    android:background="@color/colorBranco">
+    android:background="#FFFFFF">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -26,9 +25,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageButton
+            <ImageView
                 android:background="@color/colorAzul"
-                android:layout_width="70dp"
+                android:layout_width="40dp"
                 android:layout_height="55dp"
                 android:src="@drawable/ic_home"
                 android:layout_marginStart="20dp"/>
@@ -65,22 +64,30 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="5dp">
 
-            <ImageView
-                android:id="@+id/imgPerfilLista"
-                android:layout_width="80dp"
-                android:layout_height="70dp"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgPerfilUser"
+                app:civ_border_width="1dp"
+                app:civ_border_color="@color/colorAzul"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="10dp"
                 android:src="@drawable/loginapp"/>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/text"
-                android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/imgPerfilLista"
+            <EditText
+                android:id="@+id/txtEscrevaqui"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:text="Poste sua duvida aqui:"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:ems="0"
+                android:textStyle="normal"
+                android:layout_toEndOf="@+id/imgPerfilLista"
+                android:background="@drawable/bordas_text_btn_redondas_sem_cor"
+                android:hint="Digite sua dúvida aqui:"
+                android:textCursorDrawable="@drawable/cursor"
                 android:textSize="17sp"/>
 
             <androidx.recyclerview.widget.RecyclerView

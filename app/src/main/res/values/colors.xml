@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#5D6BFC</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="colorBranco">#FFFFFF</color>
-    <color name="colorCinza">#D5D5D5</color>
+    <color name="colorCinza">#ECECEC</color>
     <color name="colorAzul">#5D6BFC</color>
+    <color name="colorPreto">#000000</color>
 </resources>

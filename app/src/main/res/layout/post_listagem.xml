@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:backgroundTint="@color/colorCinza"
+        app:cardCornerRadius="25dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgPerfilLista"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                app:civ_border_color="@color/colorAzul"
+                app:civ_border_width="2dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/pessoa">
+            </de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:id="@+id/txtNomeLista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/imgPerfilLista"
+                android:text="João Ferreira"
+                android:textColor="@color/colorPreto"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imgConfiguracoes"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/settings" />
+
+            <TextView
+                android:id="@+id/txtMensagemLista"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@+id/imgPerfilLista"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="7dp"
+                android:text="Aqui estão as listas de CSGBD da prof Lívia."
+                android:textColor="@color/colorPreto" />
+
+
+            <LinearLayout
+                android:id="@+id/llPDFs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/txtMensagemLista">
+
+                <ImageView
+                    android:id="@+id/imgPDF1"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/icon_pdf"
+                    android:layout_below="@+id/txtMensagemLista"
+                    android:layout_marginStart="10dp"/>
+
+                <ImageView
+                    android:id="@+id/imgPDF2"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/icon_pdf"
+                    android:layout_toEndOf="@id/imgPDF1"
+                    android:layout_below="@+id/txtMensagemLista"
+                    android:layout_marginStart="20dp"/>
+
+                <ImageView
+                    android:id="@+id/imgPDF3"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_toEndOf="@id/imgPDF2"
+                    android:src="@drawable/icon_pdf"
+                    android:layout_below="@+id/txtMensagemLista"
+                    android:layout_marginStart="20dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgCurtir"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/curtir"
+                android:layout_below="@id/llPDFs"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"/>
+
+            <ImageView
+                android:id="@+id/imgComentar"
+                android:layout_width="30dp"
+                android:layout_height="20dp"
+                android:src="@drawable/comentar"
+                android:layout_toEndOf="@id/imgCurtir"
+                android:layout_below="@id/llPDFs"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="40dp"/>
+
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
