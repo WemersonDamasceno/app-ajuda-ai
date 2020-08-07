@@ -1,4 +1,4 @@
-package com.ufc.com.ajudaai.view;
+package com.ufc.com.ajudaai.view.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,12 +6,12 @@ import android.os.Bundle;
 
 import com.ufc.com.ajudaai.R;
 
-public class FazerUmPostActivity extends AppCompatActivity {
+public class CriarUmaPublicacaoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fazer_um_post);
+        setContentView(R.layout.activity_criar_uma_publicacao);
 
 
 

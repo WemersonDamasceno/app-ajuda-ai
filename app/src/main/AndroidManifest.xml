@@ -9,26 +9,26 @@
         android:roundIcon="@drawable/ic_home"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.FazerUmPostActivity"
+        <activity android:name=".view.view.CriarUmaPublicacaoActivity"
             android:label="Criar uma publicação">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".view.Pagina_Inicial_Activity" />
+                android:value=".view.view.Pagina_Inicial_Activity" />
         </activity>
-        <activity android:name=".view.SplashActivity" />
-        <activity android:name=".view.CriarContaActivity">
+        <activity android:name=".view.view.SplashActivity" />
+        <activity android:name=".view.view.CriarContaActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".view.LoginActivity" />
+                android:value=".view.view.LoginActivity" />
         </activity>
-        <activity android:name=".view.LoginActivity">
+        <activity android:name=".view.view.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.Pagina_Inicial_Activity" />
+        <activity android:name=".view.view.Pagina_Inicial_Activity" />
     </application>
 
 </manifest>

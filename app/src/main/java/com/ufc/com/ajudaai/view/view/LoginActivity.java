@@ -1,4 +1,4 @@
-package com.ufc.com.ajudaai.view;
+package com.ufc.com.ajudaai.view.view;
 
 import android.content.Intent;
 import android.os.Bundle;

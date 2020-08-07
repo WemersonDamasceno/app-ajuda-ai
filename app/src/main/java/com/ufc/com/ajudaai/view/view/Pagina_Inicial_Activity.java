@@ -1,9 +1,8 @@
-package com.ufc.com.ajudaai.view;
+package com.ufc.com.ajudaai.view.view;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -27,7 +26,7 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
         txtEscreverAqui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext(),FazerUmPostActivity.class));
+                startActivity(new Intent(v.getContext(), CriarUmaPublicacaoActivity.class));
             }
         });
 
