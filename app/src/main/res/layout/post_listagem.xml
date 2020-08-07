@@ -54,14 +54,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_below="@+id/imgPerfilLista"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="7dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="7dp"
                 android:text="Aqui estão as listas de CSGBD da prof Lívia."
                 android:textColor="@color/colorPreto" />
 
 
             <LinearLayout
-                android:id="@+id/llPDFs"
+                android:id="@+id/llPDFsListaDown"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -69,7 +69,7 @@
                 android:layout_below="@id/txtMensagemLista">
 
                 <ImageView
-                    android:id="@+id/imgPDF1"
+                    android:id="@+id/imgPDF1ListaDown"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/icon_pdf"
@@ -77,21 +77,17 @@
                     android:layout_marginStart="10dp"/>
 
                 <ImageView
-                    android:id="@+id/imgPDF2"
+                    android:id="@+id/imgPDF2ListaDown"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/icon_pdf"
-                    android:layout_toEndOf="@id/imgPDF1"
-                    android:layout_below="@+id/txtMensagemLista"
                     android:layout_marginStart="20dp"/>
 
                 <ImageView
-                    android:id="@+id/imgPDF3"
+                    android:id="@+id/imgPDF3ListaDown"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:layout_toEndOf="@id/imgPDF2"
                     android:src="@drawable/icon_pdf"
-                    android:layout_below="@+id/txtMensagemLista"
                     android:layout_marginStart="20dp"/>
             </LinearLayout>
 
@@ -100,7 +96,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/curtir"
-                android:layout_below="@id/llPDFs"
+                android:layout_below="@id/llPDFsListaDown"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"/>
 
@@ -110,7 +106,7 @@
                 android:layout_height="20dp"
                 android:src="@drawable/comentar"
                 android:layout_toEndOf="@id/imgCurtir"
-                android:layout_below="@id/llPDFs"
+                android:layout_below="@id/llPDFsListaDown"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="40dp"/>
 

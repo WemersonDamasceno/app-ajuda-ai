@@ -4,4 +4,7 @@
     <string name="ic_procurar">ic_procurar</string>
     <string name="ic_notificacoes">ic_notificacoes</string>
     <string name="ic_perfil">ic_perfil</string>
+    <string name="digite_sua_d_vida_aqui">Digite sua dúvida aqui:</string>
+    <string name="compartilhar">Compartilhar</string>
+    <string name="textoCriarPub">Aqui você pode compartilhar aquele material com meu amigo. 📚😊\n\nOu fazer perguntas sobre as disciplinas ou professores!🤓🤫\n\nVocê só pode compartilhar 3 pdf por postagem, lembre-se de preencher o campo tag corretamente para ajudar seus amigos🤓️</string>
 </resources>

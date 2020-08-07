@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.FazerUmPostActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgPerfilCriarPub"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/loginapp"
+            app:civ_border_color="@color/colorAzul"
+            app:civ_border_width="1dp" />
+
+
+        <Button
+            android:id="@+id/imgBtnCriarPub"
+            android:layout_width="150dp"
+            android:background="@drawable/borda_arrendondados"
+            android:textColor="@color/colorBranco"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/txtNomeCriarPub"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/compartilhar"/>
+
+        <TextView
+            android:id="@+id/txtNomeCriarPub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="João Ferreira"
+            android:layout_toEndOf="@+id/imgPerfilCriarPub"
+            android:textColor="@color/colorPreto"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:layout_marginTop="25dp"/>
+
+
+        <EditText
+            android:id="@+id/txtMensgCriarPub"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@+id/imgPerfilCriarPub"
+            android:background="@drawable/bordas_text_btn_redondas_sem_cor"
+            android:padding="10dp"
+            android:gravity="left"
+            android:hint="@string/digite_sua_d_vida_aqui"
+            android:textSize="15sp"
+            tools:ignore="RtlHardcoded" />
+
+        <LinearLayout
+            android:id="@+id/llPDFsUpload"
+            android:layout_width="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="@color/colorCinza"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/txtMensgCriarPub">
+
+            <ImageView
+                android:id="@+id/imgPDF1Upload"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/pfdupload"
+                android:layout_marginStart="10dp"/>
+
+            <ImageView
+                android:id="@+id/imgPDF2Upload"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/pfdupload"
+                android:layout_marginStart="20dp"/>
+
+            <ImageView
+                android:id="@+id/imgPDF3Upload"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/pfdupload"
+                android:layout_marginStart="20dp"/>
+        </LinearLayout>
+
+
+        <EditText
+            android:id="@+id/edTAGCriarPub"
+            android:textColor="@color/colorPreto"
+            android:layout_below="@+id/llPDFsUpload"
+            android:background="@drawable/bordas_text_btn_redondas_sem_cor"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:padding="10dp"
+            android:layout_marginStart="10dp"
+            android:hint="Ex: #calculo"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edTAGCriarPub"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-thin"
+            android:gravity="center"
+            android:text="@string/textoCriarPub"
+            android:textColor="@color/colorPreto"
+            android:textSize="18sp"/>
+
+
+    </RelativeLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

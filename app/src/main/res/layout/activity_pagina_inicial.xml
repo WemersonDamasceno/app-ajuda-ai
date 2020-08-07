@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Pagina_Inicial_Activity"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    tools:context=".view.Pagina_Inicial_Activity">
 
 
     <androidx.appcompat.widget.Toolbar
@@ -26,29 +26,29 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:layout_width="40dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="20dp"
                 android:background="@color/colorAzul"
-                android:layout_width="40dp"
-                android:layout_height="55dp"
-                android:src="@drawable/ic_home"
-                android:layout_marginStart="20dp"/>
+                android:src="@drawable/ic_home" />
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="55dp"
-                android:src="@drawable/ic_procurar"
-                android:layout_marginStart="50dp"/>
+                android:layout_marginStart="50dp"
+                android:src="@drawable/ic_procurar" />
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="55dp"
-                android:src="@drawable/ic_notificacoes"
-                android:layout_marginStart="50dp"/>
+                android:layout_marginStart="50dp"
+                android:src="@drawable/ic_notificacoes" />
 
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="55dp"
-                android:src="@drawable/ic_perfil"
-                android:layout_marginStart="50dp"/>
+                android:layout_marginStart="50dp"
+                android:src="@drawable/ic_perfil" />
 
         </LinearLayout>
 
@@ -69,36 +69,32 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgPerfilUser"
-                app:civ_border_width="1dp"
-                app:civ_border_color="@color/colorAzul"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/loginapp"/>
+                android:src="@drawable/loginapp"
+                app:civ_border_color="@color/colorAzul"
+                app:civ_border_width="1dp" />
 
-            <EditText
-                android:id="@+id/txtEscrevaqui"
+            <TextView
+                android:id="@+id/txtEscrevaAqui"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="10dp"
-                android:ems="0"
-                android:textStyle="normal"
-                android:layout_toEndOf="@+id/imgPerfilLista"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_toEndOf="@+id/imgPerfilUser"
                 android:background="@drawable/bordas_text_btn_redondas_sem_cor"
-                android:hint="Digite sua dúvida aqui:"
-                android:textCursorDrawable="@drawable/cursor"
-                android:textSize="17sp"/>
+                android:padding="10dp"
+                android:text="@string/digite_sua_d_vida_aqui"
+                android:textSize="15sp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvListPostagens"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/imgPerfilLista">
-            </androidx.recyclerview.widget.RecyclerView>
-
-
+                android:layout_below="@+id/imgPerfilUser"
+                android:layout_marginTop="10dp"/>
         </RelativeLayout>
 
 

@@ -9,7 +9,13 @@
         android:roundIcon="@drawable/ic_home"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.SplashActivity"></activity>
+        <activity android:name=".view.FazerUmPostActivity"
+            android:label="Criar uma publicação">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.Pagina_Inicial_Activity" />
+        </activity>
+        <activity android:name=".view.SplashActivity" />
         <activity android:name=".view.CriarContaActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
