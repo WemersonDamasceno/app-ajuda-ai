@@ -25,8 +25,7 @@
                 android:layout_height="60dp"
                 android:layout_marginStart="5dp"
                 app:civ_border_color="@color/colorAzul"
-                app:civ_border_width="2dp"
-                android:layout_marginTop="5dp"
+                app:civ_border_width="1dp"
                 android:src="@drawable/unnamed">
             </de.hdodenhof.circleimageview.CircleImageView>
 
@@ -35,7 +34,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="15dp"
                 android:layout_toEndOf="@+id/imgPerfilLista"
                 android:text="João Ferreira"
                 android:textColor="@color/colorPreto"
@@ -43,10 +42,9 @@
 
             <ImageView
                 android:id="@+id/imgConfiguracoes"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="5dp"
                 android:layout_marginEnd="8dp"
                 android:src="@drawable/settings" />
 

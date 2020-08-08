@@ -26,25 +26,29 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/homePI"
                 android:layout_width="40dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="20dp"
                 android:background="@color/colorAzul"
-                android:src="@drawable/ic_home" />
+                android:src="@drawable/ic_home_select" />
 
             <ImageView
+                android:id="@+id/searchPI"
                 android:layout_width="40dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="50dp"
                 android:src="@drawable/ic_procurar" />
 
             <ImageView
+                android:id="@+id/notifyPI"
                 android:layout_width="40dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="50dp"
                 android:src="@drawable/ic_notificacoes" />
 
             <ImageView
+                android:id="@+id/perfilPI"
                 android:layout_width="40dp"
                 android:layout_height="55dp"
                 android:layout_marginStart="50dp"
@@ -74,7 +78,7 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/unnamed"
                 app:civ_border_color="@color/colorAzul"
-                app:civ_border_width="1dp" />
+                app:civ_border_width="2dp" />
 
             <TextView
                 android:id="@+id/txtEscrevaAqui"
@@ -94,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/imgPerfilUser"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="20dp" />
         </RelativeLayout>
 
 

@@ -69,6 +69,11 @@ public class AdapterPublicacao extends RecyclerView.Adapter<AdapterPublicacao.Vi
         listPublicacao.add(pub);
     }
 
+    public void filterList(ArrayList<Publicacao> filteredList) {
+        listPublicacao = filteredList;
+        notifyDataSetChanged();
+    }
+
     class ViewHolderPublicacoes extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView mensagem;
         ImageView imgPerfil;
