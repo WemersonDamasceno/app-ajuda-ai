@@ -20,7 +20,7 @@
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/loginapp"
+            android:src="@drawable/pessoa"
             app:civ_border_color="@color/colorAzul"
             app:civ_border_width="1dp" />
 
@@ -49,7 +49,7 @@
 
 
         <EditText
-            android:id="@+id/txtMensgCriarPub"
+            android:id="@+id/edMensgCriarPub"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:textCursorDrawable="@drawable/cursor"
@@ -64,18 +64,28 @@
             android:textSize="15sp"
             tools:ignore="RtlHardcoded" />
 
+        <TextView
+            android:id="@+id/clique"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edMensgCriarPub"
+            android:textColor="@color/colorPreto"
+            android:layout_marginTop="10dp"
+            android:text="Clique na imagem para fazer upload dos arquivo"/>
+
         <LinearLayout
             android:id="@+id/llPDFsUpload"
             android:layout_width="match_parent"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="1dp"
             android:gravity="center"
             android:layout_height="50dp"
             android:orientation="horizontal"
             android:background="@color/colorCinza"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/txtMensgCriarPub">
+            android:layout_below="@id/clique">
 
             <ImageView
                 android:id="@+id/imgPDF1Upload"
@@ -100,14 +110,24 @@
         </LinearLayout>
 
 
+        <TextView
+            android:id="@+id/tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Deixe aqui algumas tags para ajudar seus amigos."
+            android:layout_below="@+id/llPDFsUpload"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorPreto"
+            android:layout_marginStart="10dp"/>
+
         <EditText
             android:id="@+id/edTAGCriarPub"
             android:textColor="@color/colorPreto"
-            android:layout_below="@+id/llPDFsUpload"
+            android:layout_below="@+id/tag"
             android:background="@drawable/bordas_text_btn_redondas_sem_cor"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="1dp"
             android:layout_marginEnd="10dp"
             android:textCursorDrawable="@drawable/cursor"
             android:padding="10dp"
@@ -119,7 +139,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/edTAGCriarPub"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="sans-serif-thin"
             android:gravity="center"

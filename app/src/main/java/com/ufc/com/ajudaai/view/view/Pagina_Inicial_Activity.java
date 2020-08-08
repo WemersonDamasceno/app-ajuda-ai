@@ -30,7 +30,7 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
             }
         });
 
-
+        verificarAutenticado();
 
 
     }

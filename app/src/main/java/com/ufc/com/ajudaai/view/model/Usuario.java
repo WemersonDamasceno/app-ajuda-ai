@@ -3,7 +3,7 @@ package com.ufc.com.ajudaai.view.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Pessoa implements Parcelable {
+public class Usuario implements Parcelable {
     private String nome;
     private String email;
     private String senha;
@@ -12,8 +12,8 @@ public class Pessoa implements Parcelable {
 
 
 
-    public Pessoa(){};
-    public Pessoa(String nome, String email, String senha, String idUser, String urlFoto) {
+    public Usuario(){};
+    public Usuario(String nome, String email, String senha, String idUser, String urlFoto) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -22,7 +22,7 @@ public class Pessoa implements Parcelable {
     }
 
 
-    protected Pessoa(Parcel in) {
+    protected Usuario(Parcel in) {
         nome = in.readString();
         email = in.readString();
         senha = in.readString();
@@ -30,15 +30,15 @@ public class Pessoa implements Parcelable {
         urlFoto = in.readString();
     }
 
-    public static final Creator<Pessoa> CREATOR = new Creator<Pessoa>() {
+    public static final Creator<Usuario> CREATOR = new Creator<Usuario>() {
         @Override
-        public Pessoa createFromParcel(Parcel in) {
-            return new Pessoa(in);
+        public Usuario createFromParcel(Parcel in) {
+            return new Usuario(in);
         }
 
         @Override
-        public Pessoa[] newArray(int size) {
-            return new Pessoa[size];
+        public Usuario[] newArray(int size) {
+            return new Usuario[size];
         }
     };
 

@@ -30,10 +30,11 @@
 
 
     <EditText
-        android:id="@+id/CCnomeUsuario"
+        android:id="@+id/nomeUserCriarConta"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textPersonName"
         android:ems="15"
         android:hint="Nome"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <EditText
-        android:id="@+id/CCemailUsuario"
+        android:id="@+id/emailUserCriarConta"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -50,10 +51,10 @@
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CCnomeUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeUserCriarConta" />
 
     <EditText
-        android:id="@+id/CCsenhaUsuario"
+        android:id="@+id/senhaUserCriarConta"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,10 +63,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CCemailUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/emailUserCriarConta" />
 
     <EditText
-        android:id="@+id/CCconfirmeSenhaUsuario"
+        android:id="@+id/confirmeSenhaCriarConta"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,7 +75,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/CCsenhaUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/senhaUserCriarConta" />
 
     <Button
         android:id="@+id/btnCCCriarConta"
@@ -97,12 +98,12 @@
         android:layout_marginBottom="10dp"
         android:text="Ou"
         android:textSize="17sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnLoginSIGAA2"
+        app:layout_constraintBottom_toTopOf="@+id/btnLoginSIGAACriarConta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnLoginSIGAA2"
+        android:id="@+id/btnLoginSIGAACriarConta"
         android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_marginBottom="10dp"

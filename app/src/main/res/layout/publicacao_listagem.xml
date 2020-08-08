@@ -92,7 +92,7 @@
             </LinearLayout>
 
             <ImageView
-                android:id="@+id/imgCurtir"
+                android:id="@+id/imgCurtirLista"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/curtir"
@@ -101,11 +101,11 @@
                 android:layout_marginStart="10dp"/>
 
             <ImageView
-                android:id="@+id/imgComentar"
+                android:id="@+id/imgComentarLista"
                 android:layout_width="30dp"
                 android:layout_height="20dp"
                 android:src="@drawable/comentar"
-                android:layout_toEndOf="@id/imgCurtir"
+                android:layout_toEndOf="@id/imgCurtirLista"
                 android:layout_below="@id/llPDFsListaDown"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="40dp"/>
