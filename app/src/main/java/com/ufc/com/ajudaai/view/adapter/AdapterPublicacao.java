@@ -121,10 +121,10 @@ public class AdapterPublicacao extends RecyclerView.Adapter<AdapterPublicacao.Vi
                                 if (publicacao.getIdUserPub().equals(user.getIdUser())) {
                                     nomeUser.setText(user.getNome());
                                     mensagem.setText(publicacao.getMensagem());
-                                    //Fazer depois
-                                    //if (!user.getIdUser().equals("NA")) {
-                                    //    Picasso.get().load(user.getUrlFoto()).into(imgPerfil);
-                                    //}
+                                    //Fazer depois pra upload da foto de perfil.
+                                    if (!user.getUrlFoto().equals("NA")) {
+                                        Picasso.get().load(user.getUrlFoto()).into(imgPerfil);
+                                    }
                                     if (publicacao.getUrlPDF1().equals("teste")
                                             && publicacao.getUrlPDF2().equals("teste")
                                             && publicacao.getUrlPDF3().equals("teste")) {
