@@ -7,7 +7,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
@@ -16,7 +16,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:padding="10dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgPerfilLista"
@@ -26,7 +27,7 @@
                 app:civ_border_color="@color/colorAzul"
                 app:civ_border_width="2dp"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/pessoa">
+                android:src="@drawable/unnamed">
             </de.hdodenhof.circleimageview.CircleImageView>
 
             <TextView
@@ -73,7 +74,6 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:src="@drawable/icon_pdf"
-                    android:layout_below="@+id/txtMensagemLista"
                     android:layout_marginStart="10dp"/>
 
                 <ImageView
@@ -104,12 +104,11 @@
                 android:id="@+id/imgComentarLista"
                 android:layout_width="30dp"
                 android:layout_height="20dp"
-                android:src="@drawable/comentar"
-                android:layout_toEndOf="@id/imgCurtirLista"
                 android:layout_below="@id/llPDFsListaDown"
+                android:layout_marginStart="50dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="40dp"/>
-
+                android:layout_toEndOf="@id/imgCurtirLista"
+                android:src="@drawable/comentar" />
 
 
         </RelativeLayout>

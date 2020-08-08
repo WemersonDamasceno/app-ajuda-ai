@@ -12,6 +12,8 @@ public class Publicacao implements Parcelable {
     private String urlPDF2;
     private String urlPDF3;
 
+    public Publicacao() {
+    }
 
     public Publicacao(String mensagem, String TAGs,
                       String idPublicacao, String idUserPub, String urlPDF1, String urlPDF2, String urlPDF3) {

@@ -105,7 +105,7 @@ public class CriarContaActivity extends AppCompatActivity {
         usuarioNovo.setEmail(emailUserCriarConta.getText().toString());
         usuarioNovo.setSenha(senhaUserCriarConta.getText().toString());
         usuarioNovo.setIdUser(FirebaseAuth.getInstance().getUid());
-
+        usuarioNovo.setUrlFoto("NA");
         salvarUsuario(usuarioNovo);
 
     }

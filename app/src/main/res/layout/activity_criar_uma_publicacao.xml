@@ -17,30 +17,30 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgPerfilCriarPub"
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/pessoa"
+            android:src="@drawable/unnamed"
             app:civ_border_color="@color/colorAzul"
             app:civ_border_width="1dp" />
 
 
         <Button
-            android:id="@+id/imgBtnCriarPub"
+            android:id="@+id/btnCriarPub"
             android:layout_width="150dp"
             android:background="@drawable/borda_arrendondados"
             android:textColor="@color/colorBranco"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/txtNomeCriarPub"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="7dp"
             android:layout_marginTop="10dp"
             android:text="@string/compartilhar"/>
 
         <TextView
             android:id="@+id/txtNomeCriarPub"
-            android:layout_width="wrap_content"
+            android:layout_width="155dp"
             android:layout_height="wrap_content"
-            android:text="João Ferreira"
+            android:text="Wemerson Monteiro"
             android:layout_toEndOf="@+id/imgPerfilCriarPub"
             android:textColor="@color/colorPreto"
             android:textStyle="bold"
