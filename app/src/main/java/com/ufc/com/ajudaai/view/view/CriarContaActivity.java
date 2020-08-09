@@ -1,5 +1,6 @@
 package com.ufc.com.ajudaai.view.view;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +30,7 @@ public class CriarContaActivity extends AppCompatActivity {
     EditText confirmeSenhaCriarConta;
     Button btnCCCriarConta, btnLoginSIGAACriarConta;
     Usuario usuarioNovo;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +44,13 @@ public class CriarContaActivity extends AppCompatActivity {
         btnCCCriarConta = findViewById(R.id.btnCCCriarConta);
         btnLoginSIGAACriarConta = findViewById(R.id.btnLoginSIGAACriarConta);
         usuarioNovo = new Usuario();
+        progressDialog = new ProgressDialog(this);
 
         btnCCCriarConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog.setTitle("Criando sua conta...");
+                progressDialog.show();
                 String email = emailUserCriarConta.getText().toString();
                 String senha = senhaUserCriarConta.getText().toString();
                 String nome = nomeUserCriarConta.getText().toString();
@@ -107,6 +112,8 @@ public class CriarContaActivity extends AppCompatActivity {
         usuarioNovo.setIdUser(FirebaseAuth.getInstance().getUid());
         usuarioNovo.setUrlFoto("NA");
         salvarUsuario(usuarioNovo);
+        progressDialog.dismiss();
+        startActivity(new Intent(getBaseContext(),SplashActivity.class));
 
     }
 
@@ -127,7 +134,7 @@ public class CriarContaActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 Log.i("teste", "User salvo");
-                startActivity(new Intent(getBaseContext(),SplashActivity.class));
+                //startActivity(new Intent(getBaseContext(),SplashActivity.class));
             }
         });
     }

@@ -13,8 +13,10 @@ public class Publicacao implements Parcelable {
     private String urlPDF3;
     private int numCurtidas;
     private int numComentarios;
+    private String nomePDF;
 
-    public Publicacao(String mensagem, String TAGs, String idPublicacao, String idUserPub, String urlPDF1, String urlPDF2, String urlPDF3, int numCurtidas, int numComentarios) {
+    public Publicacao(String mensagem, String TAGs, String idPublicacao, String idUserPub,
+                      String urlPDF1, String urlPDF2, String urlPDF3, int numCurtidas, int numComentarios,String nomePDF) {
         this.mensagem = mensagem;
         this.TAGs = TAGs;
         this.idPublicacao = idPublicacao;
@@ -24,6 +26,10 @@ public class Publicacao implements Parcelable {
         this.urlPDF3 = urlPDF3;
         this.numCurtidas = numCurtidas;
         this.numComentarios = numComentarios;
+        this.nomePDF = nomePDF;
+    }
+
+    public Publicacao() {
     }
 
     protected Publicacao(Parcel in) {
@@ -36,6 +42,7 @@ public class Publicacao implements Parcelable {
         urlPDF3 = in.readString();
         numCurtidas = in.readInt();
         numComentarios = in.readInt();
+        nomePDF = in.readString();
     }
 
     public static final Creator<Publicacao> CREATOR = new Creator<Publicacao>() {
@@ -49,9 +56,6 @@ public class Publicacao implements Parcelable {
             return new Publicacao[size];
         }
     };
-
-    public Publicacao() {
-    }
 
     public String getMensagem() {
         return mensagem;
@@ -125,6 +129,14 @@ public class Publicacao implements Parcelable {
         this.numComentarios = numComentarios;
     }
 
+    public String getNomePDF() {
+        return nomePDF;
+    }
+
+    public void setNomePDF(String nomePDF) {
+        this.nomePDF = nomePDF;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -141,5 +153,6 @@ public class Publicacao implements Parcelable {
         dest.writeString(urlPDF3);
         dest.writeInt(numCurtidas);
         dest.writeInt(numComentarios);
+        dest.writeString(nomePDF);
     }
 }

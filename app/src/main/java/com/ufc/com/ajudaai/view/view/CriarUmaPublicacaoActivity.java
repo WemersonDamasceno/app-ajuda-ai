@@ -48,6 +48,7 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
     ImageView imgPDF1Upload,imgPDF2Upload,imgPDF3Upload;
     EditText edTAGCriarPub;
     Publicacao publicacao;
+    ProgressDialog progressCriarPostagem;
 
     private StorageReference mStorageRef;
 
@@ -65,11 +66,14 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
         imgPDF3Upload = findViewById(R.id.imgPDF3Upload);
         edTAGCriarPub = findViewById(R.id.edTAGCriarPub);
         publicacao = new Publicacao();
+        progressCriarPostagem = new ProgressDialog(this);
 
 
         btnCriarPub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressCriarPostagem.setTitle("Compartilhando sua publicação!");
+                progressCriarPostagem.show();
                 String mensagem = edMensgCriarPub.getText().toString();
                 String TAGs = edTAGCriarPub.getText().toString();
                 String idPublicacao = UUID.randomUUID().toString();
@@ -148,7 +152,9 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
         progressDialog.setTitle("Uploading PDF1");
         progressDialog.show();
 
-        StorageReference reference = mStorageRef.child("pdf_uploads/"+System.currentTimeMillis()+".pdf");
+        final String nomePDF = System.currentTimeMillis()+".pdf";
+        publicacao.setNomePDF(nomePDF);
+        StorageReference reference = mStorageRef.child("pdf_uploads/"+nomePDF);
         reference.putFile(data)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -159,8 +165,8 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
                         while (!uriTask.isComplete());
                         Uri url = uriTask.getResult();
 
-
                         publicacao.setUrlPDF1(url.toString());
+                        publicacao.setNomePDF(nomePDF);
                         //mudar a foto do pdf
                         Picasso.get().load(R.drawable.pdfcompleto).into(imgPDF1Upload);
                         Toast.makeText(CriarUmaPublicacaoActivity.this, "Upload pronto", Toast.LENGTH_SHORT).show();
@@ -243,27 +249,29 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
                                 for (DocumentSnapshot doc : queryDocumentSnapshots.getDocuments()){
                                     final Usuario user = doc.toObject(Usuario.class);
                                     if(user.getIdUser().equals(FirebaseAuth.getInstance().getUid())){
-                                        uptadeQtdPubUser(user.getQtdPublicacoes(),doc);
+                                        int qtd = user.getQtdPublicacoes(); //bug no firebase '-' ou eu que sou burro?
+                                        uptadeQtdPubUser(qtd,doc);
                                     }
                                 }
                             }
                         });
+                progressCriarPostagem.dismiss();
                 startActivity(new Intent(getBaseContext(),Pagina_Inicial_Activity.class));
+                finish();
             }
         });
     }
 
-    private void uptadeQtdPubUser(int qtd, DocumentSnapshot doc) {
-        qtd++;
-        final int finalQtd = qtd;
+    private void uptadeQtdPubUser(final int qtd, DocumentSnapshot doc) {
+        final int qtdIn = qtd+1;
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("/users")
                 .document(doc.getId())
-                .update("qtdPublicacoes",qtd)
+                .update("qtdPublicacoes",qtdIn)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Log.i("teste","Uptade qtd: "+ finalQtd);
+                        Log.i("teste","Uptade qtd: "+ qtdIn);
                     }
                 });
         db.terminate().addOnCompleteListener(new OnCompleteListener<Void>() {

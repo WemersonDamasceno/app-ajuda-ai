@@ -8,6 +8,7 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -49,6 +50,8 @@ public class PerfilActivity extends AppCompatActivity {
     TextView txtNomePerfilPerfil,qtdPublicacoes,qtdSeguidores,qtdSeguindo;
     ImageView home4,search4,notify4,perfil4, imgEditarPerfil,imgPerfilPerfil,imgTrocarFotoPerfil, imgSair;
     private StorageReference mStorageRef;
+    ProgressDialog progressDialogFoto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +71,7 @@ public class PerfilActivity extends AppCompatActivity {
         qtdSeguindo = findViewById(R.id.txtQtdSeguindo);
         imgTrocarFotoPerfil = findViewById(R.id.imgTrocarFotoPerfil);
         imgSair = findViewById(R.id.imgSair);
+        progressDialogFoto = new ProgressDialog(this);
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
@@ -165,6 +169,8 @@ public class PerfilActivity extends AppCompatActivity {
         }
     }
     private void enviarFoto(Uri selectedImage) {
+        progressDialogFoto.setTitle("Enviando sua foto...");
+        progressDialogFoto.show();
         //salvar imagem no banco
         String fileName = UUID.randomUUID().toString();
         final StorageReference ref = FirebaseStorage.getInstance().getReference("/images/" + fileName);
@@ -176,6 +182,7 @@ public class PerfilActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri1) {
                                 updateUserFoto(uri1.toString());
+                                progressDialogFoto.dismiss();
                             }
                         });
                     }
@@ -192,7 +199,7 @@ public class PerfilActivity extends AppCompatActivity {
             @Override
             public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
                 double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                Toast.makeText(PerfilActivity.this, "Aguarde um pouco, " + (int) progress + "% completo", Toast.LENGTH_SHORT).show();
+                progressDialogFoto.setMessage("Enviado: "+ (int) progress + "% completo");
             }
         });
 

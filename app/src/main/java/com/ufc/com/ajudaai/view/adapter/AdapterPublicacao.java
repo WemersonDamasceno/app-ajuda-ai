@@ -17,10 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -36,14 +34,13 @@ import com.ufc.com.ajudaai.view.model.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
 public class AdapterPublicacao extends RecyclerView.Adapter<AdapterPublicacao.ViewHolderPublicacoes> {
     private ArrayList<Publicacao> listPublicacao;
     private StorageReference mStorageRef;
-    private StorageReference ref;
+    private StorageReference refDocumento;
     private Publicacao publicacao;
     private Context getContext;
 
@@ -72,7 +69,6 @@ public class AdapterPublicacao extends RecyclerView.Adapter<AdapterPublicacao.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderPublicacoes holder, int position) {
-        publicacao = listPublicacao.get(position);
         holder.setDados(listPublicacao.get(position));
     }
 
@@ -100,6 +96,7 @@ public class AdapterPublicacao extends RecyclerView.Adapter<AdapterPublicacao.Vi
         ImageView imgCurtir, imgComentar;
         LinearLayout llPDFsListaDown;
 
+
         ViewHolderPublicacoes(@NonNull View itemView) {
             super(itemView);
             mensagem = itemView.findViewById(R.id.txtMensagemLista);
@@ -119,7 +116,9 @@ public class AdapterPublicacao extends RecyclerView.Adapter<AdapterPublicacao.Vi
             imgPDF1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    downloadPDF1();
+                    publicacao = listPublicacao.get(getAdapterPosition());
+                    Log.i("teste","lista do pub: "+publicacao.getTAGs());
+                    downloadPDF1(publicacao);
                     Toast.makeText(getContext, "Fazendo o download do arquivo...", Toast.LENGTH_SHORT).show();
                 }
             });
@@ -138,18 +137,16 @@ public class AdapterPublicacao extends RecyclerView.Adapter<AdapterPublicacao.Vi
                 }
             });
         }
-        private void downloadPDF1() {
+        private void downloadPDF1(Publicacao pub) {
             mStorageRef = FirebaseStorage.getInstance().getReference();
-            ref = mStorageRef.child("pdf_uploads/");
-            ref.getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
-                @Override
-                public void onComplete(@NonNull Task<Uri> task) {
-                    //Terminar isso amanha de fazer download de PDF.
-                }
-            }).addOnSuccessListener(new OnSuccessListener<Uri>() {
+            refDocumento = mStorageRef.child("/pdf_uploads/").child(pub.getNomePDF());
+
+
+            refDocumento.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
-                    downloadFiles(getContext, "1596933296931",".pdf",DIRECTORY_DOWNLOADS,publicacao.getUrlPDF1());
+                    String url = uri.toString();
+                    downloadFiles(getContext, "Lista "+publicacao.getTAGs(), DIRECTORY_DOWNLOADS, url);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -159,20 +156,20 @@ public class AdapterPublicacao extends RecyclerView.Adapter<AdapterPublicacao.Vi
             });
         }
 
-        private void downloadFiles(Context context, String filename, String extension, String destination, String url) {
+        private void downloadFiles(Context context, String filename, String destination, String url) {
             DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
             Uri uri = Uri.parse(url);
             DownloadManager.Request request = new DownloadManager.Request(uri);
 
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-            request.setDestinationInExternalFilesDir(context,destination,filename+extension);
+            request.setDestinationInExternalFilesDir(context,destination,filename+ ".pdf");
 
             downloadManager.enqueue(request);
         }
 
         @Override
         public void onClick(View v) {
-
+            Log.i("teste","Pub: "+publicacao.getTAGs());
         }
 
         private void setDados(final Publicacao publicacao) {
