@@ -73,7 +73,6 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressCriarPostagem.setTitle("Compartilhando sua publicação!");
-                progressCriarPostagem.show();
                 String mensagem = edMensgCriarPub.getText().toString();
                 String TAGs = edTAGCriarPub.getText().toString();
                 String idPublicacao = UUID.randomUUID().toString();
@@ -91,6 +90,7 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
                     if (TAGs.equals(""))
                         edTAGCriarPub.setError("O campo TAGs é obrigatório!");
                 } else {
+                    progressCriarPostagem.show();
                     criarNovaPub(mensagem, TAGs, idPublicacao,idUserPub,urlPDF1,urlPDF2,urlPDF3);
                 }
        
@@ -120,12 +120,6 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-        //Quando fizer o upload do PDF mudar o icon branco para o PDFCompleto
         
 
     }

@@ -158,7 +158,6 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
                         progressDialogBuscarPubs.dismiss();
                     }
                 });
-
     }
 
     private void verificarAutenticado() {

@@ -133,7 +133,7 @@ public class SearchActivity extends AppCompatActivity {
                             adapterPublicacao.add(p);
                         }
                         for (Publicacao c : adapterPublicacao.getListPublicacao()) {
-                            if (c.getTAGs().toLowerCase().contains(text.toLowerCase())) {
+                            if (c.getMensagem().toLowerCase().contains(text.toLowerCase())) {
                                 filteredList.add(c);
                             }
                         }
