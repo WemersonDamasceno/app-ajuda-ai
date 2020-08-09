@@ -59,7 +59,7 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
         layoutManager.setReverseLayout(false);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
 
-        adapterPublicacao = new AdapterPublicacao();
+        adapterPublicacao = new AdapterPublicacao(getBaseContext());
         rvListPublicacoes.setLayoutManager(layoutManager);
         rvListPublicacoes.setAdapter(adapterPublicacao);
 

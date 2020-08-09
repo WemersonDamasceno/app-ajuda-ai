@@ -75,7 +75,7 @@ public class PerfilActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getBaseContext());
         layoutManager.setReverseLayout(false);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
-        adapterPublicacao = new AdapterPublicacao();
+        adapterPublicacao = new AdapterPublicacao(getBaseContext());
 
         rvPubsFeitasPorMim.setLayoutManager(layoutManager);
         rvPubsFeitasPorMim.setAdapter(adapterPublicacao);

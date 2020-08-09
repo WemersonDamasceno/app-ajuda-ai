@@ -92,7 +92,7 @@ public class SearchActivity extends AppCompatActivity {
         rvListPubSearch = findViewById(R.id.rvListPubSearch);
         edPesquisar = findViewById(R.id.edPesquisar);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getBaseContext());
-        adapterPublicacao = new AdapterPublicacao();
+        adapterPublicacao = new AdapterPublicacao(getBaseContext());
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         layoutManager.setReverseLayout(false);
 
