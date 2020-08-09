@@ -143,7 +143,40 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 Log.i("teste", "Publicacao salva completa");
+                FirebaseFirestore.getInstance().collection("users")
+                        .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                            @Override
+                            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                                for (DocumentSnapshot doc : queryDocumentSnapshots.getDocuments()){
+                                    final Usuario user = doc.toObject(Usuario.class);
+                                    if(user.getIdUser().equals(FirebaseAuth.getInstance().getUid())){
+                                        uptadeQtdPubUser(user.getQtdPublicacoes(),doc);
+                                    }
+                                }
+                            }
+                        });
                 startActivity(new Intent(getBaseContext(),Pagina_Inicial_Activity.class));
+            }
+        });
+    }
+
+    private void uptadeQtdPubUser(int qtd, DocumentSnapshot doc) {
+        qtd++;
+        final int finalQtd = qtd;
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("/users")
+                .document(doc.getId())
+                .update("qtdPublicacoes",qtd)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Log.i("teste","Uptade qtd: "+ finalQtd);
+                    }
+                });
+        db.terminate().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
             }
         });
     }

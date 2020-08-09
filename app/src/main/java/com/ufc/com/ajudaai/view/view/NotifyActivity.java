@@ -35,15 +35,17 @@ public class NotifyActivity extends AppCompatActivity {
                 //Utilizando animação
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out);
                 ActivityCompat.startActivity(v.getContext(), intent, activityOptionsCompat.toBundle());
+                finish();
             }
         });
         search3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), NotifyActivity.class);
+                Intent intent = new Intent(v.getContext(), SearchActivity.class);
                 //Utilizando animação
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out);
                 ActivityCompat.startActivity(v.getContext(), intent, activityOptionsCompat.toBundle());
+                finish();
                 }
         });
 
@@ -61,6 +63,7 @@ public class NotifyActivity extends AppCompatActivity {
                 //Utilizando animação
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out);
                 ActivityCompat.startActivity(v.getContext(), intent, activityOptionsCompat.toBundle());
+                finish();
             }
         });
 

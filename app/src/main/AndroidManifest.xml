@@ -2,14 +2,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ufc.com.ajudaai">
 
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/ajudaai"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_home"
+        android:roundIcon="@drawable/ajudaai"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.view.NotifyActivity"></activity>
+        <activity android:name=".view.view.EditarPerfilActivity"
+            android:label="Gerencie sua conta">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.view.PerfilActivity" />
+        </activity>
+        <activity android:name=".view.view.NotifyActivity" />
         <activity android:name=".view.view.PerfilActivity" />
         <activity android:name=".view.view.SearchActivity" />
         <activity

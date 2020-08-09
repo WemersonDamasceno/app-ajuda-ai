@@ -55,6 +55,7 @@ public class SearchActivity extends AppCompatActivity {
                 //Utilizando animação
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out);
                 ActivityCompat.startActivity(v.getContext(), intent, activityOptionsCompat.toBundle());
+                finish();
             }
         });
         search2.setOnClickListener(new View.OnClickListener() {
@@ -71,6 +72,7 @@ public class SearchActivity extends AppCompatActivity {
                 //Utilizando animação
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out);
                 ActivityCompat.startActivity(v.getContext(), intent, activityOptionsCompat.toBundle());
+                finish();
             }
         });
 
@@ -81,6 +83,7 @@ public class SearchActivity extends AppCompatActivity {
                 //Utilizando animação
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out);
                 ActivityCompat.startActivity(v.getContext(), intent, activityOptionsCompat.toBundle());
+                finish();
             }
         });
 

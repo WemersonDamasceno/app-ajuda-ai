@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.view.PerfilActivity">
+    tools:context=".view.view.PerfilActivity"
+    android:backgroundTint="@color/colorBranco"
+    android:background="@color/colorBranco">
 
 
 
@@ -57,8 +59,196 @@
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
+    <RelativeLayout
+        android:id="@+id/fotoEnome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/tollbarPerfil">
+
+        <ImageView
+            android:id="@+id/imgSair"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_sair"
+            android:layout_alignParentEnd="true"/>
+
+
+        <LinearLayout
+            android:id="@+id/llFotoNome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_centerHorizontal="true">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgPerfilPerfil"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/unnamed"
+                    app:civ_border_width="2dp"
+                    android:layout_centerHorizontal="true"
+                    app:civ_border_color="@color/colorAzul"
+                    android:layout_marginTop="5dp"/>
+
+                <ImageView
+                    android:id="@+id/imgTrocarFotoPerfil"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="-40dp"
+                    android:layout_below="@+id/imgPerfilPerfil"
+                    android:layout_toEndOf="@+id/imgPerfilPerfil"
+                    android:src="@drawable/ic_camera" />
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txtNomePerfilPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Wemerson Monteiro"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="5dp"/>
+
+                <ImageView
+                    android:id="@+id/imgEditarPerfil"
+                    android:layout_marginStart="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_editar_perfil"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/infoPUBs"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fotoEnome"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/numeros"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/fotoEnome"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/txtQtdPublicacoes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="19"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="17sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="publicações "
+                    android:textColor="@color/colorPreto"
+                    android:textSize="17sp"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txtQtdSeguidores"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="19"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="17sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="   seguidores"
+                    android:layout_marginEnd="10dp"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="17sp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/txtQtdSeguindo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="19"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="17sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="seguindo"
+                    android:textColor="@color/colorPreto"
+                    android:textSize="17sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:textSize="15sp"
+        android:layout_below="@+id/infoPUBs"
+        android:text="Gerencie suas publicacoes ✏️👇"
+        android:textColor="@color/colorPreto"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPubsFeitasPorMim"
+        android:layout_below="@+id/text2"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+</RelativeLayout>

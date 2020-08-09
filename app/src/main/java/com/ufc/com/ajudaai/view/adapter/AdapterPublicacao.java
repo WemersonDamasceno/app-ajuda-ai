@@ -127,7 +127,7 @@ public class AdapterPublicacao extends RecyclerView.Adapter<AdapterPublicacao.Vi
                                     nomeUser.setText(user.getNome());
                                     mensagem.setText(publicacao.getMensagem());
                                     //Fazer depois pra upload da foto de perfil.
-                                    if (!user.getUrlFoto().equals("NA")) {
+                                    if (!user.getUrlFoto().equals("NA") && user.getUrlFoto() != null) {
                                         Picasso.get().load(user.getUrlFoto()).into(imgPerfil);
                                     }
                                     if (publicacao.getUrlPDF1().equals("teste")

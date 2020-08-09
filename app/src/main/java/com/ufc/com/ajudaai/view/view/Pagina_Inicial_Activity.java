@@ -25,6 +25,7 @@ import com.squareup.picasso.Picasso;
 import com.ufc.com.ajudaai.R;
 import com.ufc.com.ajudaai.view.adapter.AdapterPublicacao;
 import com.ufc.com.ajudaai.view.model.Publicacao;
+import com.ufc.com.ajudaai.view.model.Usuario;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
     TextView txtEscreverAqui;
     RecyclerView rvListPublicacoes;
     AdapterPublicacao adapterPublicacao;
-    ImageView home,search,notify,perfil;
+    ImageView home,search,notify,perfil,imgPerfilUser;
 
 
 
@@ -50,6 +51,7 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
         search = findViewById(R.id.searchPI);
         notify = findViewById(R.id.notifyPI);
         perfil = findViewById(R.id.perfilPI);
+        imgPerfilUser = findViewById(R.id.imgPerfilUser);
 
 
         rvListPublicacoes = findViewById(R.id.rvListPostagens);
@@ -69,6 +71,13 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
             }
         });
 
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                recreate();
+            }
+        });
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +85,7 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
                 //Utilizando animação
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out);
                 ActivityCompat.startActivity(v.getContext(), intent, activityOptionsCompat.toBundle());
+                finish();
             }
         });
 
@@ -86,6 +96,7 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
                 //Utilizando animação
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out);
                 ActivityCompat.startActivity(v.getContext(), intent, activityOptionsCompat.toBundle());
+                finish();
             }
         });
 
@@ -96,15 +107,33 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
                 //Utilizando animação
                 ActivityOptionsCompat activityOptionsCompat = ActivityOptionsCompat.makeCustomAnimation(v.getContext(), R.anim.fade_in, R.anim.fade_out);
                 ActivityCompat.startActivity(v.getContext(), intent, activityOptionsCompat.toBundle());
+                finish();
             }
         });
 
 
 
-
+        setarFoto(FirebaseAuth.getInstance().getUid());
         verificarAutenticado();
         buscarPublicacoes();
 
+    }
+
+    private void setarFoto(final String uid) {
+        FirebaseFirestore.getInstance().collection("/users")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                    @Override
+                    public void onEvent(@androidx.annotation.Nullable QuerySnapshot queryDocumentSnapshots, @androidx.annotation.Nullable FirebaseFirestoreException e) {
+                        for(DocumentSnapshot doc : queryDocumentSnapshots.getDocuments()){
+                            Usuario usuario = doc.toObject(Usuario.class);
+                            if(usuario.getIdUser().equals(uid)){
+                                if(!usuario.getUrlFoto().equals("NA") && usuario.getUrlFoto() != null) {
+                                    Picasso.get().load(usuario.getUrlFoto()).into(imgPerfilUser);
+                                }
+                            }
+                        }
+                    }
+                });
     }
 
     private void buscarPublicacoes() {
