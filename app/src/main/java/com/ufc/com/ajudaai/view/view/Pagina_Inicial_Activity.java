@@ -1,5 +1,6 @@
 package com.ufc.com.ajudaai.view.view;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -37,6 +38,7 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
     RecyclerView rvListPublicacoes;
     AdapterPublicacao adapterPublicacao;
     ImageView home,search,notify,perfil,imgPerfilUser;
+    ProgressDialog progressDialogBuscarPubs;
 
 
 
@@ -52,6 +54,7 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
         notify = findViewById(R.id.notifyPI);
         perfil = findViewById(R.id.perfilPI);
         imgPerfilUser = findViewById(R.id.imgPerfilUser);
+        progressDialogBuscarPubs = new ProgressDialog(this);
 
 
         rvListPublicacoes = findViewById(R.id.rvListPostagens);
@@ -134,9 +137,14 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
                         }
                     }
                 });
+
     }
 
     private void buscarPublicacoes() {
+        progressDialogBuscarPubs.setTitle("Aguarde um instante...");
+        progressDialogBuscarPubs.setMessage("Buscando as publicações...");
+        progressDialogBuscarPubs.show();
+
         FirebaseFirestore.getInstance().collection("/publicacoes")
                 .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
@@ -147,8 +155,10 @@ public class Pagina_Inicial_Activity extends AppCompatActivity {
                             adapterPublicacao.add(pub);
                             adapterPublicacao.notifyDataSetChanged();
                         }
+                        progressDialogBuscarPubs.dismiss();
                     }
                 });
+
     }
 
     private void verificarAutenticado() {

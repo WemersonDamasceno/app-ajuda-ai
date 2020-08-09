@@ -35,7 +35,7 @@ public class CriarContaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_criar_conta);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         nomeUserCriarConta = findViewById(R.id.nomeUserCriarConta);
         emailUserCriarConta = findViewById(R.id.emailUserCriarConta);
@@ -49,7 +49,8 @@ public class CriarContaActivity extends AppCompatActivity {
         btnCCCriarConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog.setTitle("Criando sua conta...");
+                progressDialog.setTitle("Aguarde um instante...");
+                progressDialog.setMessage("Estamos criando sua conta.");
                 progressDialog.show();
                 String email = emailUserCriarConta.getText().toString();
                 String senha = senhaUserCriarConta.getText().toString();
@@ -69,6 +70,13 @@ public class CriarContaActivity extends AppCompatActivity {
             }
         });
 
+
+        btnLoginSIGAACriarConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CriarContaActivity.this, "Em breve estará disponivel. \uD83D\uDE4C", Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 

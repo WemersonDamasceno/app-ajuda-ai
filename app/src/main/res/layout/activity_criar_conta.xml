@@ -10,8 +10,9 @@
 
     <ImageView
         android:id="@+id/imageView3"
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:src="@drawable/ajudaai"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -21,7 +22,7 @@
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
-        android:layout_height="210dp"
+        android:layout_height="200dp"
         android:scaleType="fitXY"
         android:src="@drawable/mulhercriarconta"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,36 +54,61 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomeUserCriarConta" />
 
-    <EditText
-        android:id="@+id/senhaUserCriarConta"
-        android:layout_marginTop="10dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/senhaUserCriarConta1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="15"
-        android:hint="Senha"
-        android:inputType="textPassword"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        app:counterEnabled="true"
+        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailUserCriarConta" />
+        app:layout_constraintTop_toBottomOf="@+id/emailUserCriarConta" >
 
-    <EditText
-        android:id="@+id/confirmeSenhaCriarConta"
-        android:layout_marginTop="10dp"
+        <EditText
+            android:id="@+id/senhaUserCriarConta"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            android:hint="Senha"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/senhaUserCriarConta2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="15"
-        android:hint="Confirme sua senha"
-        android:inputType="textPassword"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        app:counterEnabled="true"
+        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/senhaUserCriarConta" />
+        app:layout_constraintTop_toBottomOf="@+id/senhaUserCriarConta1" >
+
+        <EditText
+            android:id="@+id/confirmeSenhaCriarConta"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            android:hint="Confirme sua senha"
+            android:inputType="textPassword"/>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/btnCCCriarConta"
         android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/colorAzul"
+        android:background="@drawable/borda_arrendondados"
         android:ems="15"
         android:text="Criar Conta"
         android:textColor="@color/colorBranco"
@@ -107,8 +133,9 @@
         android:layout_width="320dp"
         android:layout_height="40dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/colorCinza"
+        android:background="@drawable/borda_arrendondados"
         android:text="Entrar com o SIGAA"
+        android:backgroundTint="@color/colorCinza"
         android:textColor="@color/colorAzul"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
