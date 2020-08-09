@@ -146,7 +146,7 @@ public class AdapterPublicacao extends RecyclerView.Adapter<AdapterPublicacao.Vi
                 @Override
                 public void onSuccess(Uri uri) {
                     String url = uri.toString();
-                    downloadFiles(getContext, "Lista "+publicacao.getTAGs(), DIRECTORY_DOWNLOADS, url);
+                    downloadFiles(getContext, "Lista_"+publicacao.getTAGs(), DIRECTORY_DOWNLOADS, url);
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override

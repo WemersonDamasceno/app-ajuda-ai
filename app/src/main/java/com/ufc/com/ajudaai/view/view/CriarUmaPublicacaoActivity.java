@@ -45,8 +45,7 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
     ImageView imgPerfilCriarPub;
     TextView txtNomeCriarPub;
     EditText edMensgCriarPub;
-    ImageView imgPDF1Upload,imgPDF2Upload,imgPDF3Upload;
-    EditText edTAGCriarPub;
+    ImageView imgPDF1Upload, imgPDF2Upload, imgPDF3Upload;
     Publicacao publicacao;
     ProgressDialog progressCriarPostagem;
 
@@ -61,10 +60,9 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
         imgPerfilCriarPub = findViewById(R.id.imgPerfilCriarPub);
         txtNomeCriarPub = findViewById(R.id.txtNomeCriarPub);
         edMensgCriarPub = findViewById(R.id.edMensgCriarPub);
-        imgPDF1Upload =findViewById(R.id.imgPDF1Upload);
-        imgPDF2Upload =findViewById(R.id.imgPDF2Upload);
+        imgPDF1Upload = findViewById(R.id.imgPDF1Upload);
+        imgPDF2Upload = findViewById(R.id.imgPDF2Upload);
         imgPDF3Upload = findViewById(R.id.imgPDF3Upload);
-        edTAGCriarPub = findViewById(R.id.edTAGCriarPub);
         publicacao = new Publicacao();
         progressCriarPostagem = new ProgressDialog(this);
 
@@ -74,7 +72,7 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 progressCriarPostagem.setTitle("Compartilhando sua publicação!");
                 String mensagem = edMensgCriarPub.getText().toString();
-                String TAGs = edTAGCriarPub.getText().toString();
+                String TAGs = "";
                 String idPublicacao = UUID.randomUUID().toString();
                 String idUserPub = FirebaseAuth.getInstance().getUid();
                 //Falta fazer o upload das listas.
@@ -82,18 +80,15 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
                 String urlPDF2 = "teste";
                 String urlPDF3 = "teste";
 
-                if (mensagem.equals("") || TAGs.equals("")) {
-                    if(mensagem.length() > 175)
+                if (mensagem.equals("")) {
+                    if (mensagem.length() > 175)
                         edMensgCriarPub.setError("A mensagem não pode ter mais de 175 caracteres");
                     if (mensagem.equals(""))
                         edMensgCriarPub.setError("O campo mensagem é obrigatório!");
-                    if (TAGs.equals(""))
-                        edTAGCriarPub.setError("O campo TAGs é obrigatório!");
                 } else {
                     progressCriarPostagem.show();
-                    criarNovaPub(mensagem, TAGs, idPublicacao,idUserPub,urlPDF1,urlPDF2,urlPDF3);
+                    criarNovaPub(mensagem, TAGs, idPublicacao, idUserPub, urlPDF1, urlPDF2, urlPDF3);
                 }
-       
             }
         });
 
@@ -109,18 +104,14 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
         imgPDF2Upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
             }
         });
-
         imgPDF3Upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
             }
         });
 
-        
 
     }
 
@@ -128,14 +119,14 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
         Intent intent = new Intent();
         intent.setType("application/pdf");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent,"Selecione o arquivo de PDF"),1);
+        startActivityForResult(Intent.createChooser(intent, "Selecione o arquivo de PDF"), 1);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             uploadPDFFile(data.getData());
         }
 
@@ -146,17 +137,17 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
         progressDialog.setTitle("Uploading PDF1");
         progressDialog.show();
 
-        final String nomePDF = System.currentTimeMillis()+".pdf";
+        final String nomePDF = System.currentTimeMillis() + ".pdf";
         publicacao.setNomePDF(nomePDF);
-        StorageReference reference = mStorageRef.child("pdf_uploads/"+nomePDF);
+        StorageReference reference = mStorageRef.child("pdf_uploads/" + nomePDF);
         reference.putFile(data)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Log.i("teste","Sucesso ao enviar o PDF");
+                        Log.i("teste", "Sucesso ao enviar o PDF");
 
                         Task<Uri> uriTask = taskSnapshot.getStorage().getDownloadUrl();
-                        while (!uriTask.isComplete());
+                        while (!uriTask.isComplete()) ;
                         Uri url = uriTask.getResult();
 
                         publicacao.setUrlPDF1(url.toString());
@@ -169,13 +160,13 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.i("teste","Erro ao enviar o pdf: "+e.getMessage());
+                Log.i("teste", "Erro ao enviar o pdf: " + e.getMessage());
             }
         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-                double progress = (100.0 * taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
-                progressDialog.setMessage("Uploaded: "+(int) progress+"%");
+                double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+                progressDialog.setMessage("Uploaded: " + (int) progress + "%");
 
             }
         });
@@ -187,10 +178,10 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
                     @Override
                     public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
                         List<DocumentSnapshot> docs = queryDocumentSnapshots.getDocuments();
-                        for(DocumentSnapshot doc : docs){
+                        for (DocumentSnapshot doc : docs) {
                             Usuario usuario = doc.toObject(Usuario.class);
-                            if(usuario.getIdUser().equals(uid)){
-                                if(!usuario.getUrlFoto().equals("NA"))
+                            if (usuario.getIdUser().equals(uid)) {
+                                if (!usuario.getUrlFoto().equals("NA"))
                                     Picasso.get().load(usuario.getUrlFoto()).into(imgPerfilCriarPub);
                                 txtNomeCriarPub.setText(usuario.getNome());
                             }
@@ -204,13 +195,13 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
         publicacao.setIdPublicacao(idPublicacao);
         publicacao.setIdUserPub(idUserPub);
         publicacao.setTAGs(taGs);
-        if(publicacao.getUrlPDF1() == null){
+        if (publicacao.getUrlPDF1() == null) {
             publicacao.setUrlPDF1("teste");
         }
-        if(publicacao.getUrlPDF2() == null){
+        if (publicacao.getUrlPDF2() == null) {
             publicacao.setUrlPDF2("teste");
         }
-        if(publicacao.getUrlPDF3() == null){
+        if (publicacao.getUrlPDF3() == null) {
             publicacao.setUrlPDF3("teste");
         }
 
@@ -240,35 +231,52 @@ public class CriarUmaPublicacaoActivity extends AppCompatActivity {
                         .addSnapshotListener(new EventListener<QuerySnapshot>() {
                             @Override
                             public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
-                                for (DocumentSnapshot doc : queryDocumentSnapshots.getDocuments()){
+                                for (DocumentSnapshot doc : queryDocumentSnapshots.getDocuments()) {
                                     final Usuario user = doc.toObject(Usuario.class);
-                                    if(user.getIdUser().equals(FirebaseAuth.getInstance().getUid())){
-                                        int qtd = user.getQtdPublicacoes(); //bug no firebase '-' ou eu que sou burro?
-                                        uptadeQtdPubUser(qtd,doc);
+                                    if (user.getIdUser().equals(FirebaseAuth.getInstance().getUid())) {
+                                        uptadeQtdPubUser(doc);
                                     }
                                 }
                             }
                         });
                 progressCriarPostagem.dismiss();
-                startActivity(new Intent(getBaseContext(),Pagina_Inicial_Activity.class));
+                startActivity(new Intent(getBaseContext(), Pagina_Inicial_Activity.class));
                 finish();
             }
         });
     }
 
-    private void uptadeQtdPubUser(final int qtd, DocumentSnapshot doc) {
-        final int qtdIn = qtd+1;
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("/users")
-                .document(doc.getId())
-                .update("qtdPublicacoes",qtdIn)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
+    private void uptadeQtdPubUser(final DocumentSnapshot doc) {
+        final Usuario user = doc.toObject(Usuario.class);
+        FirebaseFirestore.getInstance().collection("publicacoes")
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Log.i("teste","Uptade qtd: "+ qtdIn);
+                    public void onEvent(@androidx.annotation.Nullable QuerySnapshot queryDocumentSnapshots, @androidx.annotation.Nullable FirebaseFirestoreException e) {
+                        int qtd = 0;
+                        for (DocumentSnapshot doc : queryDocumentSnapshots.getDocuments()) {
+                            Publicacao pub = doc.toObject(Publicacao.class);
+                            if (pub.getIdUserPub().equals(user.getIdUser())) {
+                                qtd++;
+                                Log.i("teste","tam: "+qtd);
+                            }
+                        }
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                        final int finalQtd = qtd;
+                        Log.i("teste","tam: "+qtd);
+                        db.collection("/users")
+                                .document(doc.getId())
+                                .update("qtdPublicacoes", qtd)
+                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Log.i("teste", "Uptade qtd: " + finalQtd);
+                                    }
+                                });
                     }
                 });
-        db.terminate().addOnCompleteListener(new OnCompleteListener<Void>() {
+
+
+        FirebaseFirestore.getInstance().terminate().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 

@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ufc.com.ajudaai">
 
-    <uses-permission-sdk-23 android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +13,14 @@
         android:roundIcon="@drawable/ajudaai"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.view.EditarPerfilActivity"
+        <activity android:name=".view.view.Splash2Activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.view.EditarPerfilActivity"
             android:label="Gerencie sua conta">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -30,7 +37,8 @@
                 android:value=".view.view.Pagina_Inicial_Activity" />
         </activity>
         <activity android:name=".view.view.SplashActivity" />
-        <activity android:name=".view.view.CriarContaActivity"
+        <activity
+            android:name=".view.view.CriarContaActivity"
             android:label="Crie sua conta">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -38,11 +46,6 @@
         </activity>
         <activity android:name=".view.view.LoginActivity" />
         <activity android:name=".view.view.Pagina_Inicial_Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

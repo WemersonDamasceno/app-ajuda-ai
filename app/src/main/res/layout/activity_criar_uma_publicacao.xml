@@ -111,33 +111,9 @@
 
 
         <TextView
-            android:id="@+id/tag"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Deixe aqui algumas tags para ajudar seus amigos."
             android:layout_below="@+id/llPDFsUpload"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/colorPreto"
-            android:layout_marginStart="10dp"/>
-
-        <EditText
-            android:id="@+id/edTAGCriarPub"
-            android:textColor="@color/colorPreto"
-            android:layout_below="@+id/tag"
-            android:background="@drawable/bordas_text_btn_redondas_sem_cor"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="10dp"
-            android:textCursorDrawable="@drawable/cursor"
-            android:padding="10dp"
-            android:layout_marginStart="10dp"
-            android:hint="Ex: #calculo"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/edTAGCriarPub"
             android:layout_marginStart="10dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="10dp"
