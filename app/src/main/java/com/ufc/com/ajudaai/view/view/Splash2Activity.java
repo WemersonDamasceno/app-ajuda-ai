@@ -25,7 +25,7 @@ public class Splash2Activity extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), Pagina_Inicial_Activity.class));
                 finish();
             }
-        }, 1500);
+        }, 1000);
 
 
     }
