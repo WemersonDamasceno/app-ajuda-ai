@@ -68,10 +68,4 @@
       width="300"
     />
   </div>
-  <style>
-    .row {
-      width: 100%;
-      float: right;
-    }
-  </style>
 </html>
