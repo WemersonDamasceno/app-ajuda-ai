@@ -18,7 +18,7 @@
  <h1> Como usar </h1>
 
 - Faça o clone do repositório:
-$ git clone https://github.com/WemersonDamasceno/App_Ajuda_Ai.git
+$ git clone https://github.com/WemersonDamasceno/app-ajuda-ai.git
 
 
 Made with :heart: and Flutter.
